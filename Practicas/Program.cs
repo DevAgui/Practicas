@@ -11,8 +11,8 @@ namespace Practicas
         static void Main(string[] args)
         {
              
-            Practica1();
-
+            //Practica1();
+            Practica2();
             
         }
         #region Practica1
@@ -28,6 +28,41 @@ namespace Practicas
             double resultado = PI * Math.Pow(radio, 2);
 
             Console.WriteLine("El área del círculo de radio {0} es de: {1}", radio, resultado);
+        }
+        #endregion
+
+        #region Practica2
+        static void Practica2()
+        {
+            
+
+            Console.WriteLine("Vamos a comprobar si puedes conducir.");
+
+            Console.WriteLine("¿Cuántos años tienes?");
+            int puede_conducir= int.Parse(Console.ReadLine());
+            string tieneCarnet = "si";
+
+            if(puede_conducir >= 18)
+            {
+                Console.WriteLine("¿Tienes carnet? (SI/NO)");
+                string carnet_conducir = Console.ReadLine().ToLower();
+                if (carnet_conducir.Equals(tieneCarnet))
+                {
+                    Console.WriteLine("Entonces SI puedes conducir.");
+                } else
+                {
+                    Console.WriteLine("Entonces NO puedes conducir");
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("Eres menor de edad, no puedes conducir.");
+            }
+
+
+
+
         }
         #endregion
     }
