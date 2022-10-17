@@ -11,10 +11,14 @@ namespace Practicas
         static void Main(string[] args)
         {
 
+            const string RESPUESTA_AFIRMATIVA = "S";
+            const string RESPUESTA_NEGATIVA = "N";
+
             //Practica1();
             //Practica2();
-            Practica3();
-            
+            //Practica3();
+            Practica4();
+
         }
         #region Practica1
         static void Practica1()
@@ -35,15 +39,15 @@ namespace Practicas
         #region Practica2
         static void Practica2()
         {
-            
+
 
             Console.WriteLine("Vamos a comprobar si puedes conducir.");
 
             Console.WriteLine("¿Cuántos años tienes?");
-            int puede_conducir= int.Parse(Console.ReadLine());
+            int puede_conducir = int.Parse(Console.ReadLine());
             string tieneCarnet = "si";
 
-            if(puede_conducir >= 18)
+            if (puede_conducir >= 18)
             {
                 Console.WriteLine("¿Tienes carnet? (SI/NO)");
                 string carnet_conducir = Console.ReadLine().ToLower();
@@ -71,27 +75,56 @@ namespace Practicas
         static void Practica3()
         {
 
-            Console.WriteLine("Â¿Quieres entrar? S/N");
+            Console.WriteLine("¿Quieres entrar? S/N");
 
             Console.Write("respuesta: ");
-            string respuesta2 = LeerRespuesta(Console.ReadLine());
+            string respuesta = LeerRespuesta(Console.ReadLine());
             Console.WriteLine("Bien, has introducido S o N"); ;
-        }
 
-
-        static string LeerRespuesta(string respuesta)
-        {
-
-            while (respuesta != "S" && respuesta != "N")
+            string LeerRespuesta(string respuesta2)
             {
 
-                Console.Write("El valor no es correcto, debe ser una S o una N: ");
-                respuesta = Console.ReadLine();
+                while (respuesta2 != "S" && respuesta2 != "N")
+                {
+
+                    Console.Write("El valor no es correcto, debe ser una S o una N: ");
+                    respuesta2 = Console.ReadLine();
+                }
+
+                return respuesta2;
+
             }
-
-            return respuesta;
-
         }
+
         #endregion
+
+        #region Practica4
+
+        static void Practica4()
+        {
+            Console.WriteLine("¿Quieres entrar? S/N");
+
+            string respuesta2 = LeerRespuestaConDoWhile(Console.ReadLine().ToUpper());
+
+
+            string LeerRespuestaConDoWhile(string respuesta)
+            {
+
+                do
+                {
+                    Console.Write("El valor no es correcto, debe ser una S o una N: ");
+                    respuesta = Console.ReadLine();
+
+                } while (respuesta.Equals("S") || respuesta.Equals("N"));
+
+                return respuesta;
+
+            }
+        }
+
+
+        #endregion
+
     }
 }
+
