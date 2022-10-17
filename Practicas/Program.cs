@@ -17,7 +17,9 @@ namespace Practicas
             //Practica1();
             //Practica2();
             //Practica3();
-            Practica4();
+            //Practica4();
+            //Excepciones();
+            Finally();
 
         }
         #region Practica1
@@ -123,6 +125,61 @@ namespace Practicas
         }
 
 
+        #endregion
+
+        #region Excepciones
+
+        static void Excepciones()
+        {
+            try
+            {
+                Console.WriteLine("Introduce un número");
+                int valor = int.Parse(Console.ReadLine());
+                Console.WriteLine($"Se ha leído el valor: {valor}");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+        }
+        #endregion
+
+        #region Finally
+        static void Finally() 
+        {
+            //Declaració de constantes
+            const string PATH = @"E:\2ºDAM\C#\texto.txt";
+
+            //Declaración de variables
+            System.IO.StreamReader archivo = null;
+            string linea = string.Empty;
+
+            try
+            {
+                archivo = new System.IO.StreamReader(PATH); 
+                linea = archivo.ReadLine();
+                while (!String.IsNullOrEmpty(linea))
+                {
+                    Console.WriteLine(linea);
+                    linea= archivo.ReadLine();
+
+                }
+
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if(archivo != null)
+                {
+                    archivo.Close();
+                }
+                Console.WriteLine("Conexión con el fichero cerrada.");
+            }
+        }
         #endregion
 
     }
